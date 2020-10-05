@@ -274,3 +274,31 @@ We gebruiken hier de package `binaryLogic` om de twee complement versie te berek
 -$(-64)_{10} = (11000000)_{2'}$
 -$(100)_{10} + -(64)_{10}= 1(00100100)$
 
+## Oefeningen op Floating Point voorstelling
+Bepaal de decimale waarde van het volgende binary32 getal in hexadecimale vorm: $(41E00000)_{16}$.
+
+1. We zetten de hexadecimale vorm om in binaire vorm
+
+\[ (41E00000)_{16} = (0100.0001.1110.0000.0000.0000.0000)_2\]
+
+2. We zien dat hierbij het teken "+" is, want eerste getal is 0
+
+3. 
+  - Teken : +
+  - Exponent: $(10000011)_2$
+  - Mantisse: $(110.0000.0000.0000.0000)_2$
+
+4. Exponent berekenen
+  - $(10000011)_2 = (131)_{10} \rightarrow 131 - 127 = 4$
+  
+5. Mantisse:
+  - $(110.0000.0000.0000.0000)_2 \rightarrow 1,11$
+  
+6. Berekenen van decimale voorstelling: 
+
+\[ 1,11 \times 2^4 = (11100)_2 = (28)_{10}\]
+
+
+
+
+

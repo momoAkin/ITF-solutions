@@ -658,6 +658,39 @@ BinToAll(bin)</code></pre>
 </ul>
 <p><span class="math display">\[ (100)_{10} – (64)_{10} = (100)_{10} + (-64)_{10} = (36)_{10} \]</span></p>
 <p>-<span class="math inline">\((100)_{10} = (01100100)_{2&#39;}\)</span> -<span class="math inline">\((-64)_{10} = (11000000)_{2&#39;}\)</span> -<span class="math inline">\((100)_{10} + -(64)_{10}= 1(00100100)\)</span></p>
+<div id="oefeningen-op-floating-point-voorstelling" class="section level2">
+<h2>Oefeningen op Floating Point voorstelling</h2>
+<p>Bepaal de decimale waarde van het volgende binary32 getal in hexadecimale vorm: <span class="math inline">\((41E00000)_{16}\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>We zetten de hexadecimale vorm om in binaire vorm</li>
+</ol>
+<p><span class="math display">\[ (41E00000)_{16} = (0100.0001.1110.0000.0000.0000.0000)_2\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>We zien dat hierbij het teken “+” is, want eerste getal is 0</p></li>
+<li></li>
+</ol>
+<ul>
+<li>Teken : +</li>
+<li>Exponent: <span class="math inline">\((10000011)_2\)</span></li>
+<li>Mantisse: <span class="math inline">\((110.0000.0000.0000.0000)_2\)</span></li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Exponent berekenen</li>
+</ol>
+<ul>
+<li><span class="math inline">\((10000011)_2 = (131)_{10} \rightarrow 131 - 127 = 4\)</span></li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>Mantisse:</li>
+</ol>
+<ul>
+<li><span class="math inline">\((110.0000.0000.0000.0000)_2 \rightarrow 1,11\)</span></li>
+</ul>
+<ol start="6" style="list-style-type: decimal">
+<li>Berekenen van decimale voorstelling:</li>
+</ol>
+<p><span class="math display">\[ 1,11 \times 2^4 = (11100)_2 = (28)_{10}\]</span></p>
+</div>
 </div>
 
 
