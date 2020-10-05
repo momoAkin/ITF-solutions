@@ -317,4 +317,10 @@ We gebruiken hier de package `binaryLogic` om de twee complement versie te berek
 5. Mantisse is $00101010100000000000000$
 6. $(0100.0011.0001.0101.0100.0000.0000.0000)_2 = (43154000)_{16}$ 
 
+- $(538,625)_{10} \rightarrow$ Eerste bit is 0, want positief
+- $(538,625)_{10} = (1000011010,101)_2$
+- $(538,625)_{10} = (1000011010,101)_2 = (1,000011010101)_2 \times 2^{9}$. De exponent is dus 9.
+4. Excess-N notatie: $9+127 = (136)_{10} = (10001000)_2$
+5. Mantisse: $(000011010101)$
+6. $(0100.0100.0000.0110.1010.1000.0000.0000)_{2} = (4406A800)_{16}$
 
