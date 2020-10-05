@@ -304,6 +304,10 @@ We gebruiken hier de package `binaryLogic` om de twee complement versie te berek
 
 - $(43C00000)_{16} = (0100.0011.1100.0000.0000.0000.0000.0000)_2 = +1 \times 2^{135-127} \times (1,1)_2 = 1,5 \times 2^8 = 384$
 
+- $(3FC00000)_{16} = (0011.1111.1100.0000.0000.0000.0000)_2 = + 1 \times 2^{127-127} \times 1,1 = 1,5$
+
+- $(42F48000)_{16} = (0100.0010.1111.0100.0100.000.000.000)_2 = +1 \times 2^{133-127} \times 1,111010001 = (1111010,001)_2 = (122,125)_{10}$
+
 #### Bepaal voor volgende decimale waarden hun floating-point voorstelling met enkelvoudige precisie, in hexadecimale vorm.
 
 1. $(149,25)_{10}$, teken is positief dus eerste bit is 0
