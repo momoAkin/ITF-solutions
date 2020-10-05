@@ -660,7 +660,8 @@ BinToAll(bin)</code></pre>
 <p>-<span class="math inline">\((100)_{10} = (01100100)_{2&#39;}\)</span> -<span class="math inline">\((-64)_{10} = (11000000)_{2&#39;}\)</span> -<span class="math inline">\((100)_{10} + -(64)_{10}= 1(00100100)\)</span></p>
 <div id="oefeningen-op-floating-point-voorstelling" class="section level2">
 <h2>Oefeningen op Floating Point voorstelling</h2>
-<p>Bepaal de decimale waarde van het volgende binary32 getal in hexadecimale vorm: <span class="math inline">\((41E00000)_{16}\)</span>.</p>
+<div id="bepaal-de-decimale-waarde-van-het-volgende-binary32-getal-in-hexadecimale-vorm-41e00000_16." class="section level4">
+<h4>Bepaal de decimale waarde van het volgende binary32 getal in hexadecimale vorm: <span class="math inline">\((41E00000)_{16}\)</span>.</h4>
 <ol style="list-style-type: decimal">
 <li>We zetten de hexadecimale vorm om in binaire vorm</li>
 </ol>
@@ -690,6 +691,25 @@ BinToAll(bin)</code></pre>
 <li>Berekenen van decimale voorstelling:</li>
 </ol>
 <p><span class="math display">\[ 1,11 \times 2^4 = (11100)_2 = (28)_{10}\]</span></p>
+</div>
+<div id="bepaal-de-decimale-waarde" class="section level4">
+<h4>Bepaal de decimale waarde</h4>
+<ul>
+<li><p><span class="math inline">\((CE100000)_{16} = (1100.1110.0001.0000.0000.0000.0000.0000)_2 = -1 \times 2^{29} \times (1,001)_2 = (-1,125)_{10} \times 2^{29}\)</span></p></li>
+<li><p><span class="math inline">\((43C00000)_{16} = (0100.0011.1100.0000.0000.0000.0000.0000)_2 = +1 \times 2^{135-127} \times (1,1)_2 = 1,5 \times 2^8 = 384\)</span></p></li>
+</ul>
+</div>
+<div id="bepaal-voor-volgende-decimale-waarden-hun-floating-point-voorstelling-met-enkelvoudige-precisie-in-hexadecimale-vorm." class="section level4">
+<h4>Bepaal voor volgende decimale waarden hun floating-point voorstelling met enkelvoudige precisie, in hexadecimale vorm.</h4>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\((149,25)_{10}\)</span>, teken is positief dus eerste bit is 0</li>
+<li>We zetten 149,25 om in binaire vorm: <span class="math inline">\((10010101,01)_2\)</span></li>
+<li>We schuiven de bits: <span class="math inline">\((10010101,01)_2 = (1,001010101) \times 2^7\)</span>. De exponent is dus 7.</li>
+<li>We zetten om in excess-N notatie: <span class="math inline">\(127+7= (134)_{10} = (10000110)_2\)</span></li>
+<li>Mantisse is <span class="math inline">\(00101010100000000000000\)</span></li>
+<li><span class="math inline">\((0100.0011.0001.0101.0100.0000.0000.0000)_2 = (43154000)_{16}\)</span></li>
+</ol>
+</div>
 </div>
 </div>
 
