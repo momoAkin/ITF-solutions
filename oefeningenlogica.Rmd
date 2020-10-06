@@ -1,0 +1,90 @@
+---
+title: "Logica - Oplossingen"
+author: "Jens Buysse"
+date: "5-10-2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Oefeningen op proposities definiëre,
+Gegeven zijn de volgende proposities: 
+
+- $p:$ ik voel mij gelukkig
+- $q:$ ik ben rijk
+
+
+Schrijf de volgende proposities symbolisch:
+
+  - ‘Als ik rijk ben, voel ik mij gelukkig’ $q \rightarrow p$.
+  - ‘Als ik mij gelukkig voel, ben ik rijk’. $p \rightarrow q$
+  - ‘Als ik niet rijk ben, voel ik mij niet gelukkig’ $\neg q \rightarrow \neg p$.
+  - ‘Het is niet waar dat ik mij niet gelukkig voel als ik niet rijk ben’ $\neg (\neg q \rightarrow \neg p)$.
+
+
+
+## NAND-connectief
+Het nand-connectief (symbolisch $|$) wordt gedefinieerd door $(p|q) := \neg(p \wedge q)$.
+Stel een waarheidstabel op voor de propositionele vorm $p|q$.
+
+| p      	| q        	| $(p \wedge q)$  | $\neg (p \wedge q$) 	|
+|--------	|---------	|------------	    |------------	          |
+| 0     	| 0       	| 0         	    | 1         	          |
+| 0    	  | 1       	| 0         	    | 1          	          |
+| 1    	  | 0       	| 0         	    | 1          	          |
+| 1    	  | 1       	| 1         	    | 0          	          |
+
+## Oefening op implicatie
+Als $p \rightarrow q, \neg p \rightarrow r, r \rightarrow (p \vee q)$ alle waar zijn, wat is de waarde van $q$.
+
+
+| p       | q         | r                  |$p \rightarrow q$       | $\neg p \rightarrow r$      | $r \rightarrow (p \vee q)$  |
+|--------	|---------	|------------	      |------------	            |------------                 |------------                 |
+| 0       | 0         | 0                 | 1                       | 0                           |                             |
+| 0       | 0         | 1                 | 1                       | 1                           | 0                           |
+| 0       | 1         | 0                 | 1                       | 0                           |                             |
+| 0       | 1         | 1                 | 1                       | 1                           | 1                           |
+| 1       | 0         | 0                 | 0                       |                             |                             |
+| 1       | 0         | 1                 | 0                       |                             |                             |
+| 1       | 1         | 0                 | 1                       | 1                           | 1                           |
+| 1       | 1         | 1                 | 1                       | 1                           | 1                           |
+
+- Het is duidelijk dat in de rijen waar alle outputs 1 zijn, dat $q$ de waarde $1$ heeft. 
+- Merk op: er zijn enkele plaatsen in de tabel leeg gehouden omdat ze er toch niet toe doen (als je de tabel uitrekent kolom per kolom)
+
+## Verdere oefening
+
+| p 	| q 	| $(0 \vee p)$ 	| $(q \wedge 0)$ 	| $(0 \vee p) \rightarrow (q \wedge 0)$ 	|
+|---	|---	|----------------	|--------------	|---------------------------------------	|
+| 0 	| 0 	| 0              	| 0            	| 1                                      	|
+| 0 	| 1 	| 0              	| 0            	| 1                                      	|
+| 1 	| 0 	| 1              	| 0            	| 0                                      	|
+| 1 	| 1 	| 1              	| 0            	| 0                                      	|
+
+## Oefening tautologie
+
+| $p$ 	| $q$ 	| $r$ 	| $(r \vee \neg r)$ 	| $(p \wedge (r \vee \neg r)$ 	| $(q \wedge q)$  	| $(q \wedge q) \vee \neg q$ 	| $(p \wedge (r \vee \neg r) \rightarrow (q \wedge q) \vee \neg q$ 	|
+|-----	|-----	|-----	|-------------------	|-----------------------------	|-----------------	|----------------------------	|------------------------------------------------------------------	|
+| 0   	| 0   	| 0   	| 1                 	| 0                           	| 0               	| 1                          	| 1                                                                	|
+| 0   	| 0   	| 1   	| 1                 	| 0                           	| 0               	| 1                          	| 1                                                                	|
+| 0   	| 1   	| 0   	| 1                 	| 0                           	| 1               	| 1                          	| 1                                                                	|
+| 0   	| 1   	| 1   	| 1                 	| 0                           	| 1               	| 1                          	| 1                                                                	|
+| 1   	| 0   	| 0   	| 1                 	| 1                           	| 0               	| 1                          	| 1                                                                	|
+| 1   	| 0   	| 1   	| 1                 	| 1                           	| 0               	| 1                          	| 1                                                                	|
+| 1   	| 1   	| 0   	| 1                 	| 1                           	| 1               	| 1                          	| 1                                                                	|
+| 1   	| 1   	| 1   	| 1                 	| 1                           	| 1               	| 1                          	| 1                                                                	|
+
+## Oefening tautologie
+
+| $p$ 	| $q$ 	| $r$ 	| $((p \wedge q) \rightarrow r)$ 	| $p \rightarrow r$ 	| $q \rightarrow r$ 	| $((p \wedge q) \rightarrow r) \Leftrightarrow (p \rightarrow r) \vee (q \rightarrow r)$ 	|
+|-----	|-----	|-----	|--------------------------------	|-------------------	|-------------------	|-----------------------------------------------------------------------------------------	|
+| 0   	| 0   	| 0   	| 1                              	| 1                 	| 1                 	| 1                                                                                       	|
+| 0   	| 0   	| 1   	| 1                              	| 1                 	| 1                 	| 1                                                                                       	|
+| 0   	| 1   	| 0   	| 1                              	| 1                 	| 0                 	| 1                                                                                       	|
+| 0   	| 1   	| 1   	| 1                              	| 1                 	| 1                 	| 1                                                                                       	|
+| 1   	| 0   	| 0   	| 1                              	| 0                 	| 1                 	| 1                                                                                       	|
+| 1   	| 0   	| 1   	| 1                              	| 1                 	| 1                 	| 1                                                                                       	|
+| 1   	| 1   	| 0   	| 0                              	| 0                 	| 0                 	| 0                                                                                       	|
+| 1   	| 1   	| 1   	| 1                              	| 1                 	| 1                 	| 1                                                                                       	|
