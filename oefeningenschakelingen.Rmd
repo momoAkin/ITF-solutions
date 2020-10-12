@@ -1,0 +1,70 @@
+---
+title: "Oefeningen schakelingen"
+author: "Jens Buysse"
+date: "12-10-2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(readxl)
+library(kableExtra)
+
+
+# We definiëren de xor poort, want die zit niet standaard in R
+xor <- function (x, y) 
+{
+  return ((x | y) & !(x & y))
+}
+
+# We definiëren de nand poort, want dit zit niet standaard in R
+nand <- function (x, y)
+{
+  return (! (x & y))
+}
+
+```
+
+## Oefeningen op schakelingen
+
+### Oefening 1
+```{r }
+# Voor de gemakkelijkheid lezen we de data set in
+oef1 <- read_excel("data/schakelingen.xlsx")
+oef1$`niet A` <- !oef1$A
+oef1$`niet A NAND B = R` <- nand(oef1$`niet A`,oef1$B)
+oef1$`R AND C` <- oef1$`niet A NAND B = R` & oef1$C
+oef1$`R XOR C` <- xor(oef1$`niet A NAND B = R`,oef1$C)
+cols <- sapply(oef1, is.logical)
+oef1[,cols] <- lapply(oef1[,cols], as.numeric)
+oef1 %>%
+  kbl() %>%
+  kable_material_dark()
+```
+### Oefening 2
+```{r }
+oef2 <- read_excel("data/schakelingen2.xlsx")
+oef2$`A XOR B = R` <- xor(oef2$A,oef2$B)
+oef2$`A AND B = Q` <- oef2$A & oef2$B
+oef2$`ROF Q = M` <- oef2$`A XOR B = R` | oef2$`A AND B = Q`
+cols <- sapply(oef2, is.logical)
+oef2[,cols] <- lapply(oef2[,cols], as.numeric)
+oef2 %>%
+  kbl() %>%
+  kable_material_dark()
+
+```
+
+### Oefening 3
+```{r }
+oef3 <- read_excel("data/schakelingen3.xlsx")
+oef3$`A ! XOR B = R` <- !(xor(oef3$A,oef3$B))
+oef3$`B AND C =  P` <- oef3$B & oef3$C
+oef3$`R AND B` <- oef3$`A ! XOR B = R` & oef3$B
+oef3$`P OF B`  <- oef3$`B AND C =  P` | oef3$B
+cols <- sapply(oef3, is.logical)
+oef3[,cols] <- lapply(oef3[,cols], as.numeric)
+oef3 %>%
+  kbl() %>%
+  kable_material_dark()
+```
