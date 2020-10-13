@@ -126,10 +126,11 @@ Complement:
 
 Duaal:
 
--$(x+y+z).(\overline{x} + \overline{y} + \overline{z})$
+- $(x+y+z).(\overline{x} + \overline{y} + \overline{z})$
 
 ### Oefening 4
--$(x + \overline{y}).(\overline{x} + y) = \overline{x}.\overline{y}+ x.y$ 
+- $(x + \overline{y}).(\overline{x} + y) = \overline{x}.\overline{y}+ x.y$ 
+
 
 
 
