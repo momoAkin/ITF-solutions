@@ -1,0 +1,140 @@
+---
+title: "Oefeningen Boolse Algebra"
+author: "Jens Buysse"
+date: "13-10-2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Oefening
+
+Toon aan dat $(D={1,2,3,6}), D(,+,.,\overline{ })$ een Boole algebra is. Hier wordt dus gevraagd om te kijken of alle wetten gelden. We zetten de $kgv$ en de $ggd$ uit, samen met complement. 
+
+#### kgv
+$\begin{matrix}
+kgv & 1 & 2 & 3 & 6 \\
+1   & 1 & 2 & 3 & 6 \\
+2   & 2 & 4 & 6 & 6 \\
+3   & 3 & 6 & 6 & 6 \\
+6   & 6 & 6 & 6 & 6
+\end{matrix}$
+
+#### ggd
+$\begin{matrix}
+ggd & 1 & 2 & 3 & 6 \\
+1   & 1 & 1 & 1 & 1 \\
+2   & 1 & 2 & 1 & 2 \\
+3   & 1 & 1 & 3 & 3 \\
+6   & 1 & 2 & 3 & 6
+\end{matrix}$
+
+#### complement
+$\begin{matrix}
+x & \overline{x} \\
+1 & 6 \\
+2 & 3 \\
+3 & 2 \\
+6 & 1
+\end{matrix}$
+
+
+#### Commutativiteit
+- $x + y = y + x$ dat is per definitie zo, want het kleinste gemene veelvoud is commutatitief
+- $x.y = y.x$ is opnieuw per definitie zo, want het grootste gemene deler is commuatatief
+
+Dit kan je bovendien makkelijk zien door in de matrices te kijken en te zien dat $kgv$ en $ggd$ gespiegeld wordt over de diagonaal.
+
+
+
+#### Distributief
+- $x. (y + z) = x.y + x.z?$ of m.a.w. $ggd(x,(y+z)) = kgv(ggd(x,y), ggd(x,z))$
+- $x + (y.z) = (x + y) . (x + z)$ m.a.w. $ kggv(x,(y.z)) = ggd(kgv(x,y), (x,z))$ 
+
+De distributiviteit van de operator $kgv$ t.o.v. $ggd$, en vice versa, is algemeen geldig binnen de verzameling $\mathbb{N}$, dus zeker ook in het bijzonder in de gegeven verzameling D.Het bewijs van deze eigenschap valt echter buiten het bereik van deze oefening. Je kan ze wel illustreren met het voorbeeld. 
+
+#### Identiteitswetten
+- $x+1 = x$ m.a.w. $kgv(x,1) = x$ is per defitie zo
+- $x.6 = x$ m.a.w. $ggd(x, 6) = x$ is per definitie zo
+
+Uit de tabel voor $kgv$ kan worden afgelezen dat het element 1 neutraal element zal zijn voor de bewerking $kgv$. Het resultaat van $kgv(x, 1)$ is altijd $x$, onafhankelijk van de waarde van $x$. Analoog is het resultaat van $ggd(x, 6)$ steeds $x$ wat betekent dat 6 neutraal element is voor de bewerking $ggd$ in D.
+
+#### Complementswetten
+- $x + \overline{x} = 1$ m.a.w. $kgv(x,\frac{6}{x}) = 6$
+- $x. \overline{x}= 6$ m.a.w. $ggd(x, \frac{6}{x} = 1)$
+
+Dit kan opnieuw rechtstreeks in de bewerkingstabellen gecontroleerd worden.
+
+## Vervolg oefening
+Toon aan dat $(D={1,2,4,8}), D(,+,.,\overline{ })$ **geen** Boole algebra is.
+
+- Als we een voorbeeld vinden waardoor één van de axioma's die hierboven genoemd zijn niet geldt, dan hebben we voldoende bewijs gevonden om aan te tonen dat $D(,+,.,\overline{ })$ **geen** Boole algebra is.
+
+Als we kijken naar $x = 2$ met $\overline{x} = \frac{8}{2} = 4$  en $x = 4$ met $\overline{x} = \frac{4}{2} = 2$ dan zien we:
+
+- $ggd(2,4) = 2$
+- $kgv(2,4) = 4$
+- $ggd(4,2) = 2$
+- $kgv(4,2) = 4$
+
+Als we dus kijken naar $x + \overline{x} = 1$ dan zien we dat dat niet klopt en dat $x. \overline{x}= 8$ ook niet opgaat voor $2$ en $4$. 
+
+
+## Bewijs idempotentie
+
+\[ x+x=x \]
+
+- $x = x + 0$ (identiteitswet)
+- $x = x + (x . \overline{x})$ (complement)
+- $x = (x+x) . (x + \overline{x})$ (distributiviteit)
+- $x = (x+x) . (1)$ (complement)
+- $x = (x.1) + (x.1)$ (distributiviteit)
+- $x = x + x$ (complement)
+
+\[ x.x = x\]
+
+- $x = x.1$ (identiteit)
+- $x = x.(x+\overline{x})$ (complement)
+- $x = x.x + x. \overline{x}$ (distributiviteit)
+- $x = x.x. + 0$ (complement)
+- $x = x.x$ (complement)
+
+(Dit zijn oplossingen bedacht door een student, en zijn niet dezelfde als de oplossingen op Chamilo. Ze zijn wel juist en equivalent).
+
+### Duale en complement oefening
+Bepaal het complement en de duale uitdrukking van volgende uitdrukkingen
+
+- $x+ \overline{y.z}$
+- $(x.y.z)+(\overline{x}.\overline{y}.\overline{z})$
+
+Complement:
+
+- $\overline{x+ \overline{y.z}} = \overline{x} . \overline{\overline{y.z}}$ (de Morgan)
+- $\overline{x} . \overline{\overline{y.z}} = \overline{x} . (y.z)$ (involutie)
+
+Duaal:
+
+- $x . \overline{y+z}$
+
+Complement: 
+
+- $\overline{(x.y.z)+(\overline{x}.\overline{y}.\overline{z})} = \overline{x.y.z}.\overline{(\overline{x}.\overline{y}.\overline{z})}$ (de Morgan)
+- $(\overline{x}+\overline{y}+\overline{z}). (\overline{\overline{x}}+\overline{\overline{y}}+\overline{\overline{z}})$ (de Morgan)
+- $(\overline{x}+\overline{y}+\overline{z}).(x+y+z)$
+
+Duaal:
+
+-$(x+y+z).(\overline{x} + \overline{y} + \overline{z})$
+
+### Oefening 4
+-$(x + \overline{y}).(\overline{x} + y) = \overline{x}.\overline{y}+ x.y$ 
+
+
+
+
+
+
+
+
