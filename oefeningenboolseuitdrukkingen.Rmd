@@ -1,0 +1,97 @@
+---
+title: "Boolse uitdrukkingen"
+author: "Jens Buysse"
+date: "19-10-2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Oefeningen Boolse Uitdrukkingen
+
+## Oefening 1
+
+> Bepaal de DNV en de CNV van $f(x,y,z)$ als je weet dat $f(1,1,1) = f(1,0,1) = f(1,1,0) = f(0,0,0) = 1$ Alle andere waarden van $f$ zijn 0.
+
+We nemen de definitie van een CNV en DNV er nog eens bij:
+
+- De **DNV** van een Boolese uitdrukking in $n$ variabelen is een som van *minimale* uitdrukkingen in $n$ variabelen. 
+- De **CNV** van een uitdrukking in $n$ variabelen is een product van maximale uitdrukkingen in $n$ variabelen (duale van DNV).
+
+We gaan deze oefening maken via het bekijken van de outputtabel:
+
+### Via de outputtabel.
+
+| x 	| y 	| z 	| $f(x,y,z)$ 	|
+|---	|---	|---	|------------	|
+| 0 	| 0 	| 0 	| 1          	|
+| 0 	| 0 	| 1 	| 0          	|
+| 0 	| 1 	| 0 	| 0          	|
+| 0 	| 1 	| 1 	| 0          	|
+| 1 	| 0 	| 0 	| 0          	|
+| 1 	| 0 	| 1 	| 1          	|
+| 1 	| 1 	| 0 	| 1          	|
+| 1 	| 1 	| 1 	| 1          	|
+
+Hier kan je dan makkelijk bepalen dat:
+
+- **DNV** : $(\overline{x}.\overline{y}.\overline{z}) + (x.\overline{y}.z) + (x.y.\overline{z}) + (x.y.z)$
+- **CNV** : $(x + y + \overline{z}) . (x + \overline{y} + z) . (x+\overline{y}+\overline{z}) . (\overline{x} +y + z)$
+
+Maak zelf het tweede deel van deze oefening.
+
+## Oefening 2
+> Bepaal de **DNV** van $f(x, y, z, u)$ als: 
+>
+> - $f(1, 1, 1, 1) = f(1, 0, 0, 1) = f(1, 0, 1, 0) = 1$. Alle andere waarden van $f$ zijn 0. 
+> -	$f(1, 0, 1, 0) = f(0, 0, 0, 0) = f(0, 1, 0, 1) = f(1, 1, 1, 1) = 1$. Alle andere waarden van f zijn 0.
+
+Merk op dat hier is enkel de **DNV** gevraagd wordt. Voor de DNV moeten we voor alle outputwaarden die gelijk zijn aan 1 de corresponderende input kennen. Dit is precies hetgeen gegeven is. Voor deze oefening is het dus niet nodig eerst de volledige outputtabel op te stellen. Gelukkig maar, want aangezien het hier gaat over een functie met 4 inputvariabelen zouden er in totaal 16 mogelijkheden voor de input zijn welke allemaal moeten opgenomen worden in de outputtabel.
+
+Als oplossing vinden we dus:
+
+- $(x.y.z.u) + (x . \overline{y} . \overline{z} . u) + (x.\overline{y}.z.\overline{u})$
+
+Maak de andere oefening zelf.
+
+## Oefening 3
+>Geef de **DNV** en de **CNV** op twee verchillende manieren van:
+>
+> - $f(x,y,z) = \overline{x +y + z}$
+> - $f(x,y,z) = ((\overline{x}+y)+ \overline{z}).\overline{z}.x$
+> - $f(x,y,z) = (x.(\overline{y} + z))+\overline{z}$
+
+We gaan bij wijze van voorbeeld de tweede oefening maken. Er is geen vaste procedure om te weten welke eigenschappen je moet toepassen, hier komt vooral inzicht van pas.
+
+$\begin{align*} 
+f(x,y,z)  & = & ((\overline{x}+y)+\overline{z}).\overline{z}.x     & \text{  (gegeven)} \\
+          & = & [(\overline{x}+y+\overline{z}).\overline{z}].x   & \text{  (associatief)}\\
+          & = & \overline{z}.x                                     & \text{  (absorbtie)} \\
+          & = & x . \overline{z}                                   & \text{  (commutatief)} \\
+          & = & x . \overline{z} . 1                               & \text{  (identiteit)} \\
+          & = & x . \overline{z}. (y + \overline{y})               & \text{  (complementswet)} \\
+          & = & (x . \overline{z} . y) + (x. \overline{z} . \overline{y})  & \text{  (distributief)} \\
+          & = & (x . y . \overline{z} + (x . \overline{y} . \overline{z}))  & \text{  (commutatief)}
+\end{align*}$
+
+Je bekomt dezelfde uitkomst als je dit uitwerkt via de outputtabel. Dit kan je makkelijk zelf verifiëren.
+
+## Oefening 4
+> Vereenvoudig:
+>
+> - $f(x,y) = (x + y) . (\overline{y}.\overline{z}) + (x . \overline{y})$
+
+Bij deze oefening is het de bedoeling elke gegeven Boolese uitdrukking zo eenvoudig mogelijk voor te stellen. Om deze vereenvoudigde vorm te vinden wordt de gegeven uitdrukking herleid d.m.v. de eigenschappen en axioma’s van een Boole-algebra.
+
+$\begin{align*} 
+f(x,y,z)  & = &   (x.\overline{y}.\overline{z})+(y.\overline{y}.\overline{z}) + (x.\overline{y})   & \text{  (distributiviteit)} \\
+          & = &   (x.\overline{y}.\overline{z})+(0.\overline{z}) + (x.\overline{y})& \text{  (complement)}\\
+          & = &   (x.\overline{y}.\overline{z})+0+(x.\overline{y})                                  & \text{  (begrenzing)} \\
+          & = &   (x.\overline{y}.\overline{z})+(x.\overline{y})                                & \text{  (identieit)} \\
+          & = &   x.\overline{y} & \text{  (absorbtie)}
+\end{align*}$
+
+
+

@@ -1,0 +1,110 @@
+---
+title: "Karnaughdiagrammen"
+author: "Jens Buysse"
+header-includes:
+   - \usepackage{bbm,karnaugh-map}
+date: "19-10-2020"
+output: 
+  pdf_document:
+    extra_dependencies: ["bbm", "threeparttable","karnaugh-map","kvmap"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Oefeningen op Karnaugh Diagrammen
+
+> Vereenvoudig volgende functie:
+>
+> $f(x,y,z) =\overline{ x.y.z + \overline{x}.\overline{y}.z + x . \overline{y} . z+ \overline{x}.y.z}$
+
+Deze functie staat in een moeilijke vorm, maar we kunnen wel een aantal eigenschappen toepassen om deze te vereenvoudigen. Gelet op de eigenschap van involutie weten we dat:
+
+$$ \overline{f(x,y,z)} = x.y.z + \overline{x}. \overline{y} . z + x . \overline{y} . z + \overline{x}.y.z  $$
+
+We hebben dus $\overline{f}$ die wel al in de **DNV** staat. Hier kunnen we het **KD** van opstellen.
+
+\begin{figure}[ht]
+
+\centering
+
+\begin{karnaugh-map}[2][4][1][$z$][$xy$]
+
+\minterms{1,3,7,5}
+
+\implicant{1}{5}
+
+\end{karnaugh-map}
+
+\end{figure}
+
+Hierbij kunnen we dus 1 (rode) rechthoek ontdekken, namelijk de volledige kolom van $z$. We merken op dat hierbij alle waarden van $xy$ variabel zijn en dus niet moeten opgenomnen worden in de vereenvoudigde vorm. De vereenvoudige vorm van $\overline{f}$ is dus $z$.
+
+Vertrekkende van de $\overline{f}$ kunnen we $f$ ook construeren, waarbij als we de **KD** opstellen we volgende tabel krijgen.
+
+\begin{figure}[ht]
+
+\centering
+
+\begin{karnaugh-map}[2][4][1][$z$][$xy$]
+
+\minterms{0,2,4,6}
+
+\implicant{0}{4}
+
+\end{karnaugh-map}
+
+\end{figure}
+
+We krijgen voor de vereenvoudige vorm van $f$ dus $\overline{z}$.
+
+## Oefening 2
+
+We gaan in deze oefeningen de karnaughdiagramma opstellen van een aantal functies.
+
+### $f(x,y,z,u) = y + \overline{z}.u + \overline{y}.\overline{z}.\overline{u} + x.y.z.u$
+
+```{=tex}
+\begin{figure}[ht]
+\centering
+\begin{karnaugh-map}[4][4][1][$zu$][$xy$]
+\minterms{0,1,4,5,6,7,12,13,14,15,8,9}
+\implicant{0}{9}
+\implicant{4}{14}
+\end{karnaugh-map}
+\end{figure}
+```
+De rode rechthoek, daar zijn $x$, $y$ en $z$ vertegendwoordigd met zowel $x$ als $\overline{x}$ en $y$ als $\overline{y}$ en $u$ als $\overline{u}$, maar de $\overline{z}$ blijft constant. We bekomen dus als vereenvoudigde vorm:
+
+$$ f(x,u,z,u) = \overline{z} + y$$
+
+### $f(x,y,z,u,v) = x . \overline{z} . \overline{v} + z.u.\overline{v}+ z. \overline{u}.\overline{v} + x.y.z.v$
+
+```{=tex}
+\begin{figure}[ht]
+\centering
+  \begin{kvmap}
+   \begin{kvmatrix}{x,y,z,u,v}
+   0 & 1 & 1 & 0 & 1 & 1 & 1 & 1\\
+   0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
+   0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
+   0 & 1 & 1 & 0 & 1 & 1 & 1 & 1
+   \end{kvmatrix}
+   \bundle[overlapmargins=6pt, color=red]{5}{0}{5}{3}
+   \bundle[invert=true,reducespace=2pt,overlapmargins=6pt, color=blue]{4}{3}{7}{0}
+   \bundle[invert=true,reducespace=2pt,overlapmargins=6pt, color=green]{1}{3}{2}{0}
+  \end{kvmap}
+\end{figure}
+```
+Met de 1-en uit de tabel moet je rechthoeken vormen waarbij je niet mag vergeten dat het KD cyclisch doorloopt (als een soort van cylinder). Dit betekent dat de eerste rij aan de laatste rij grenst en de laatste kolom aan de eerste kolom.
+
+In dit voorbeeld resulteert dit in 3 rechthoeken (blauw, groen en rood). Het aantal elementen in de rechthoeken is steed een macht van 2, en er zijn geen 0-en opgenomen in de rechthoeken. Elke rechthoek geeft aanleiding tot tot één uitdrukking die moet worden opgenomen in de vereenvoudigde vorm.
+
+-   Groene rechthoek: $\overline{x}z\overline{v}$
+
+-   Rode rechthoek: $xyz$
+
+-   Blauwe rechthoek: $\overline{v}x$
+
+Zodat we volgende uitdrukking bekomen: $\overline{x}z\overline{v} + xyz + \overline{v}x$
