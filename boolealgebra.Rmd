@@ -17,8 +17,8 @@ Toon aan dat $(D={1,2,3,6}), D(,+,.,\overline{ })$ een Boole algebra is. Hier wo
 $\begin{matrix}
 kgv & 1 & 2 & 3 & 6 \\
 1   & 1 & 2 & 3 & 6 \\
-2   & 2 & 4 & 6 & 6 \\
-3   & 3 & 6 & 6 & 6 \\
+2   & 2 & 2 & 6 & 6 \\
+3   & 3 & 6 & 3 & 6 \\
 6   & 6 & 6 & 6 & 6
 \end{matrix}$
 
