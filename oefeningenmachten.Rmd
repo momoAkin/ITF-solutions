@@ -1,0 +1,56 @@
+---
+title: "Oefeningen op machten"
+author: "Jens Buysse"
+date: "10/26/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Oefeningen op machten
+
+
+Bepaal de waarde voor $x$ :
+
+- $\frac{a^7}{a^2} = a^x$
+- $a^x . a^5 = a^{10}$ 
+- $a^x = 1$ 
+- $a^x = \frac{1}{a^3}$
+- $(a^3)^2 = a^x$
+- $\frac{(a^5)^3}{12} = a^x$
+- $(a^4)^2 . (a^3)^2 = a^x$
+- $\frac{(a^5)^3 . (a^4)^5}{(a^4)^2} = a^x$
+- $\sqrt{x} = 17$
+- $\sqrt{3.61}$
+- $\sqrt{\frac{121}{169}} = x$
+- $(\sqrt{5^2})^2 = x$
+- $(\sqrt{a^{-4}})^6 = a^x$
+- $(\sqrt{a^4})^14 = a^x$
+- $\sqrt{3^5}.\sqrt{3} = x$
+- $64^{\frac{1}{3}} = x$ 
+
+
+Bepaal de waarde voor $a$ en $x$:
+
+- $9 = a^x$
+- $27 = a^x$
+- $16 = a^x$ 
+- $\sqrt[5]{a^3} = a^{\frac{a}{x}}$
+- $81^{\frac{-1}{4}} = \frac{a}{x}$
+
+
+Bepaal de waarden voor $a,x,b,y$
+
+- $54 = a^x + b^y$
+- $10 = a^x + b^y$
+- $216 = a^x + b^y$
+
+Tussen welke opeenvolgende gehele getallgen $a$ en $b$ ligt de wortel:
+
+- $a< \sqrt{171} < b$ 
+
+
+
+

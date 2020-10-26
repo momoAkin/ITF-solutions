@@ -25,6 +25,7 @@ $$ \overline{f(x,y,z)} = x.y.z + \overline{x}. \overline{y} . z + x . \overline{
 
 We hebben dus $\overline{f}$ die wel al in de **DNV** staat. Hier kunnen we het **KD** van opstellen.
 
+```{=tex}
 \begin{figure}[ht]
 
 \centering
@@ -38,11 +39,12 @@ We hebben dus $\overline{f}$ die wel al in de **DNV** staat. Hier kunnen we het 
 \end{karnaugh-map}
 
 \end{figure}
-
+```
 Hierbij kunnen we dus 1 (rode) rechthoek ontdekken, namelijk de volledige kolom van $z$. We merken op dat hierbij alle waarden van $xy$ variabel zijn en dus niet moeten opgenomnen worden in de vereenvoudigde vorm. De vereenvoudige vorm van $\overline{f}$ is dus $z$.
 
 Vertrekkende van de $\overline{f}$ kunnen we $f$ ook construeren, waarbij als we de **KD** opstellen we volgende tabel krijgen.
 
+```{=tex}
 \begin{figure}[ht]
 
 \centering
@@ -56,7 +58,7 @@ Vertrekkende van de $\overline{f}$ kunnen we $f$ ook construeren, waarbij als we
 \end{karnaugh-map}
 
 \end{figure}
-
+```
 We krijgen voor de vereenvoudige vorm van $f$ dus $\overline{z}$.
 
 ## Oefening 2
