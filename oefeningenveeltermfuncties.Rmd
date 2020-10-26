@@ -1,0 +1,134 @@
+---
+title: "Veeltermfuncties"
+author: "Jens Buysse"
+date: "10/26/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Oefeningen op veeltermfuncties
+
+Je kunt met R mooi de grafieken tekenen van veeltermfuncties. Het is interessant om vooral de vorm te kennen van ene functie. Zo kan je daar later makkelijk mee redeneren door bv. te zeggen een exponentië functie stijgt sneller dan een lineaire functie. 
+
+### Constante functie
+```{r constant}
+const <- function(x){return(rep(1,length(x)))}
+curve(const, -2, 2,asp=1)
+grid()
+```
+
+### Lineaire functie
+```{r linear}
+curve(2*x+1, -5, 5,asp=1)
+grid()
+```
+
+### Kwadratische functie
+```{r square}}
+curve(x^2+2, -2, 2,asp=1)
+grid()
+curve(-x^2+2, -2, 2,  col = "violet", asp=1)
+grid()
+```
+
+### Derde graadsfunctie
+```{r thirds}}
+curve(x^3-9*x, -3.9, 3.9,asp=1)
+grid()
+```
+
+### Vierde graadsfunctie
+```{r quad}}
+curve(x^4+x^3+x^2+1, -20, 20)
+grid()
+```
+Later zullen we nog een aantal andere functies erbij tekenen. 
+
+## Oefeningen lineaire functies 
+
+### Oefening 1
+
+Onderzoek het verloop van de volgende functies van de eerste graad. Teken ook de grafiek van de functie:
+
+- $f: x \rightarrow x - 3$
+- $g: x \rightarrow \frac{-3}{5}x + 7$
+
+We bekijken de tweede oefening:
+
+- De rico $(a)$ is negatief, we hebben dus te maken met een dalende functie. Links van het nulpunt is het teken +, rechts van het nulpunt is het teken -. 
+- Het snijpunt met de x-as bepalen we door $\frac{-3}{5}x + 7 = 0$ op te lossen naar $x$. We bekomen dus $x_0 = \frac{35}{3}$.
+- Snijpunt met de $y$-as is $(0,7)$ en komt overeen met $g(0)$.
+- 
+
+````{r }
+curve((-3/5) * x+7, -1, 12,asp=1)
+grid()
+```
+### Oefening 2
+
+Bepaal het snijpunt van de grafieken van:
+
+- $f: x \rightarrow x\sqrt{3} + 6 \sqrt{3}$
+- $g: x \rightarrow -2x\sqrt{3}$
+
+De gevraagde snijpunten komen overeen met oplossen van een stelsel van vergelijkingen.
+
+\begin{cases}
+  y & = & x\sqrt{3} + 6 \sqrt{3} \\
+  y & = & -2x\sqrt{3}
+\end{cases}
+
+\begin{cases}
+  -2x\sqrt{3} & = & x\sqrt{3} + 6 \sqrt{3} \\
+  y & = & -2x\sqrt{3}
+\end{cases}
+
+\begin{cases}
+  (-2\sqrt{3}-\sqrt{3})x & = & 6 \sqrt{3} \\
+  y & = & -2x\sqrt{3}
+\end{cases}
+
+\begin{cases}
+  -3\sqrt{3}.x & = & 6 \sqrt{3} \\
+  y & = & -2x\sqrt{3}
+\end{cases}
+
+\begin{cases}
+  x & = & -2 \\
+  y & = & -4\sqrt{3}
+\end{cases}
+
+Er is dus maar 1 snijpunt, namelijk $(-2,-4\sqrt{3})$.
+
+````{r }
+curve(x*sqrt(3) + 6*sqrt(3),-50,50)
+curve(-2*x*sqrt(3), add=TRUE, col="red",asp=1)
+grid()
+```
+
+### Oefening 3
+
+- We vinden  de  vergelijking van een rechte door $A(x_A, y_A)$ en $B(x_B, y_B)$ vinden met    
+    \[ y - y_ A = \frac{y_B - y_A}{x_B - x_A}	. ( x - x_A) \]
+- De richtingscoëfficiënt van de rechte door twee punten $A$ en $B$ vinden we als het quotiënt:	$\frac{y_B - y_A}{x_B - x_A}$.
+
+De rechte die door $(0,20)$ en $(15,30)$ gaat heeft als vergelijking 
+\[ y - 20 = \frac{30 - 20}{15-0}.(x-0)  \Leftrightarrow y = \frac{2}{3}x + 20\]
+
+De rechte die loodrecht staat op de eerste rechte heeft als richtingscoëfficiënt $\frac{-3}{2}$, want het product met de andere richtingscoëfficiënt is -1. Daarop kunnen we beslissen dat de vergelijking van de tweede rechte gelijk is aan:
+
+\[ y- 40 = \frac{-3}{2}(x-30) \Leftrightarrow y = \frac{-3}{2}x + 85 \]
+
+````{r }
+curve((2/3)*x + 20,20,40)
+curve((-3/2)*x+85, add=TRUE, col="red")
+#Let op, de assenstelsels hebben hier niet dezelfde ijking als je asp niet op 1 zet (en dus lijken ze niet loodrecht)
+curve((2/3)*x + 20,20,40,asp=1)
+curve((-3/2)*x+85, add=TRUE, col="red",asp=1)
+grid()
+```
+
+
