@@ -1,0 +1,48 @@
+---
+title: "Oefeningentweedegraadsfuncties"
+author: "Jens Buysse"
+date: "11/3/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Tweedegraadsfuncties
+
+### Oefening 1
+Bespreek de volgende tweedegraadsfuncties en bepaalde de functiewaarde. We nemen als voorbeeld oefening (c)
+
+-   $-x^2 +2x -1$ met functiewaarde $f(1)$
+
+-   Het domein van de functie $f$ is $\mathbb{R}$
+-   Het beeld van de functie $f$ is $]- \infty , 0]$
+    - Verklaring: we zien dat de coëfficiënt $a$ van $x = -1$. We hebben dus te maken met een bergparabool. We bepalen de $x$-coordinaat van de top van deze parabool, waardoor we weten dat alle waarden van het beeld kleiner zijn dit getal het beeld van deze $x$-coödinaat. 
+    - $\frac{-b}{2a} = \frac{-2}{-2} = 1$ 
+    - We bepalen zijn beeld: $f(1) = -1. (1)^2 + 2.1 -1 = 0$ 
+    - We zien dat alle waarde $y \leq 0$ het beeld vormen van deze functie. 
+- We bepalden de nulpunten:
+    - $D= b^2 - 4ac = 4 - 4(-1)(-1) = 0$ We hebben dus maar 1 nulpunt, en het leuke is dat we die hierboven al berekend hebben. 
+    - Dit kan je ook zien door op te merken dat $-x^2 +2x -1 = (x--1)^2$, waarbij dus de 2 nulpunten samenvallen. 
+- Snijpunt met de $y$-as:
+    - $f(0) = -1 \rightarrow (0,-1)$
+    
+#### Tekenen van de functie
+
+```{r }
+f <-  function(x){
+  return(-1 * x*x + 2*x -1)
+}
+
+curve(f,-4,6)
+grid()
+
+```
+
+### Oefening 2
+Is de inverse van de tweedegraadsfunctie opnieuw een functie. Illustreert dit voor $f(x) = x^2$ 
+
+- We weten dat $f(x)$ en $f(-x)$ hetzelfde beeld hebben. Bepalen we de inverse dan zien we dat $(x^2,x)$ en $(x^2,-x)$ $\in f^{-1}$ zitten, wat in strijd is met de definitie van een functie (ken je die nog?).
+
+

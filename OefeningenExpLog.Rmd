@@ -1,0 +1,50 @@
+---
+title: "OefenignenexpLog"
+author: "Jens Buysse"
+date: "11/3/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Oefeningen op exponentiële en logaritmische functies
+
+### Illustratie
+
+```{r exp}
+
+curve(exp,0,10)
+grid()
+curve(log,0,10)
+grid()
+````
+
+### Oefeningen
+
+- $log_5 5 = 1$ Kan je ook berekenen met R  (voor code zie source file) `r log(5,5)`
+- $lg_{\frac{1}{2}} = -1$ of dus `r log(2,1/2)` 
+- $log_{\sqrt{2}} 1 = 0$ 
+- $\dots$ 
+
+Los op naar $x$
+
+- $log_9 = \frac{1}{2} \Leftrightarrow log_9 x = \frac{1}{2} \rightarrow x = 3$
+- $lg(3x-1) + lg(2x+1) = lg(12) - lg(3) \Leftrightarrow lg(6x + 3x -2x -1) = lg(4) \Leftrightarrow lg(7x-1) = lg(4) \Leftrightarrow 7x -1 = 4 \Leftrightarrow x = \frac{5}{7}$
+
+### Extra oefeningen
+Bepaal het domein en beeld van $f$. Geef de nulpunten, het snijpuntmet de $Y$ as en eventuele asymptoten van $f$. Teken ten slotte de grafiek van $f$ en bepaal de gevraagde functiewaarde.
+
+- $f : \mathbb(R) \rightarrow \mathbb(R) : x \rightarrow y = log_3 x)$ 
+
+- domein van $f$ is $\mathbb(R)_0^+$ 
+- beeld van $f$ is $\mathbb(R)$
+- nulpunt $x=1$ want $log_3 x = 0 \Leftrightarrow x = 1$ 
+- Snijpunt met de $y$-as is er niet want $O \notin$ domein van $f$
+- Er is een verticale assymptoot, de rechte met vergelijking $x=0$ of dus de $y$-as. Dit valt buiten de scope van deze cursus, maar probeer zelf eens na te gaan of dit klopt. 
+
+```{r }
+curve(log(x,3),-1,11)
+grid()
+```
