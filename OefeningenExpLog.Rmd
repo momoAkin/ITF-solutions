@@ -19,30 +19,37 @@ curve(exp,0,10)
 grid()
 curve(log,0,10)
 grid()
-````
+```
 
 ### Oefeningen
 
-- $log_5 5 = 1$ Kan je ook berekenen met R  (voor code zie source file) `r log(5,5)`
-- $lg_{\frac{1}{2}} = -1$ of dus `r log(2,1/2)` 
-- $log_{\sqrt{2}} 1 = 0$ 
-- $\dots$ 
+-   $log_5 5 = 1$ Kan je ook berekenen met R (voor code zie source file) `r log(5,5)`
+-   $lg_{\frac{1}{2}} = -1$ of dus `r log(2,1/2)`
+-   $log_{\sqrt{2}} 1 = 0$
+-   $\dots$
 
 Los op naar $x$
 
-- $log_9 = \frac{1}{2} \Leftrightarrow log_9 x = \frac{1}{2} \rightarrow x = 3$
-- $lg(3x-1) + lg(2x+1) = lg(12) - lg(3) \Leftrightarrow lg(6x + 3x -2x -1) = lg(4) \Leftrightarrow lg(7x-1) = lg(4) \Leftrightarrow 7x -1 = 4 \Leftrightarrow x = \frac{5}{7}$
+-   $log_9 = \frac{1}{2} \Leftrightarrow log_9 x = \frac{1}{2} \rightarrow x = 3$
+-   $lg(3x-1) + lg(2x+1) = lg(12) - lg(3) \Leftrightarrow lg(6x^2 + 3x -2x -1) = lg(4) \Leftrightarrow lg(6x^2 +x -1) = lg(4) \Leftrightarrow 6x^2+x -5 = 0$
+
+We hebben dus een tweedegraadsvergelijking: $D= 1^2 -4.6.(-5) = 121$ Twee mogelijke oplossingen dus: $x_1 = \frac{-1 - 11}{12} = -1$ en $x_2 = \frac{-1+11}{12} = \frac{10}{12}$ Je kan zelf zien welke oplossing kan en welke niet.
 
 ### Extra oefeningen
+
 Bepaal het domein en beeld van $f$. Geef de nulpunten, het snijpuntmet de $Y$ as en eventuele asymptoten van $f$. Teken ten slotte de grafiek van $f$ en bepaal de gevraagde functiewaarde.
 
-- $f : \mathbb(R) \rightarrow \mathbb(R) : x \rightarrow y = log_3 x)$ 
+-   $f : \mathbb(R) \rightarrow \mathbb(R) : x \rightarrow y = log_3 x)$
 
-- domein van $f$ is $\mathbb(R)_0^+$ 
-- beeld van $f$ is $\mathbb(R)$
-- nulpunt $x=1$ want $log_3 x = 0 \Leftrightarrow x = 1$ 
-- Snijpunt met de $y$-as is er niet want $O \notin$ domein van $f$
-- Er is een verticale assymptoot, de rechte met vergelijking $x=0$ of dus de $y$-as. Dit valt buiten de scope van deze cursus, maar probeer zelf eens na te gaan of dit klopt. 
+-   domein van $f$ is $\mathbb(R)_0^+$
+
+-   beeld van $f$ is $\mathbb(R)$
+
+-   nulpunt $x=1$ want $log_3 x = 0 \Leftrightarrow x = 1$
+
+-   Snijpunt met de $y$-as is er niet want $O \notin$ domein van $f$
+
+-   Er is een verticale assymptoot, de rechte met vergelijking $x=0$ of dus de $y$-as. Dit valt buiten de scope van deze cursus, maar probeer zelf eens na te gaan of dit klopt.
 
 ```{r }
 curve(log(x,3),-1,11)
@@ -50,18 +57,18 @@ grid()
 ```
 
 ### Oefening Angry Birds
+
 Je speelt het spel Angry Birds. Je moet door boze vogels te lanceren zoveelmogelijk groene varkens raken. Je krijgt hiervoor drie pogingen. Er bevinden zich groene varkens op de punten: $(1,4),(2,4),(2,5),(3,1),(3,3),(3,4),(3,5),(4,2),(4,4)$.
 
-Je mag drie vogels lanceren: een bruine, rode en blauwe vogel. 
+Je mag drie vogels lanceren: een bruine, rode en blauwe vogel.
 
-- De bruine vogel start in het punt met coördinaten $(1,3)$ en vliegtvolgens de grafiek van de functie $f$ met $f(x) = 2^x+1$. 
-- De rode vogel start in het punt met coördinaten $(2,0)$ en vliegt volgensde grafiek van de functie $g$ met $g(x) = lg(x-1)$.
-- De blauwe vogel start in het punt met coördinaten $(2,3)$ en vliegt volgens de grafiek van de functie $h$ met $h(x) = -x^2 +6x -5$ 
+-   De bruine vogel start in het punt met coördinaten $(1,3)$ en vliegtvolgens de grafiek van de functie $f$ met $f(x) = 2^x+1$.
+-   De rode vogel start in het punt met coördinaten $(2,0)$ en vliegt volgensde grafiek van de functie $g$ met $g(x) = lg(x-1)$.
+-   De blauwe vogel start in het punt met coördinaten $(2,3)$ en vliegt volgens de grafiek van de functie $h$ met $h(x) = -x^2 +6x -5$
 
-
-a. Maak een tekening van de gegeven situatie. Duid eveneens de vluchtvan elke vogel op jouw tekening aan.
-b. Raakt elke vogel een varken? Zo ja, welk varken wordt er geraakt doorwelke vogel? Motiveer jouw antwoord a.d.h.v. een analytische berekening. Verifieer vervolgens of jouw berekeningen overeenstemmen met jouw tekening. 
-c. De varkens met coördinaten $(2,4)$ en $(4,2)$ zijn nog niet geraakt. Je krijgt twee extra vogels om specifiek deze varkens uit te schakelen. Beide vogels vertrekken van het punt met coördinaten $(1,2)$. Ze vliegen allebei volgens een rechte lijn. Geef voor beide vogels de vergelijking van de functie die hun vlucht volgt.
+a.  Maak een tekening van de gegeven situatie. Duid eveneens de vluchtvan elke vogel op jouw tekening aan.
+b.  Raakt elke vogel een varken? Zo ja, welk varken wordt er geraakt doorwelke vogel? Motiveer jouw antwoord a.d.h.v. een analytische berekening. Verifieer vervolgens of jouw berekeningen overeenstemmen met jouw tekening.
+c.  De varkens met coördinaten $(2,4)$ en $(4,2)$ zijn nog niet geraakt. Je krijgt twee extra vogels om specifiek deze varkens uit te schakelen. Beide vogels vertrekken van het punt met coördinaten $(1,2)$. Ze vliegen allebei volgens een rechte lijn. Geef voor beide vogels de vergelijking van de functie die hun vlucht volgt.
 
 We maken de tekening door de curves van de gegeven functies te tekenen.
 
@@ -115,19 +122,21 @@ text(4, 4, "(4,4)", cex=0.6, pos=1, col="green")
 
 Een varken zal geraakt worden door een vogel, als je zijn coördinaten in de vergelijking van het traject van de vogel zet. Je kan al duidelijk zien op de tekening welke varkens door welke vogels geraakt zullen worden. Ga nu thuis na door de vergelijking op te lossen. Bv. ($f(2) = 2^2 + 1 = 5$ dus $(2,5)$ wordt geraakt door de bruine vogel.)
 
-Er moeten nu extra varkens geraakt worden. Om het varken op $(4,2)$ te raken via een rechte lijn vanuit positie $(1,2)$ moet je een lineaire functie definiëren die deze twee punten bevat. Dat komt overeen met een rechte evenwijdig met de x-as, namelijk $y=2$. 
+Er moeten nu extra varkens geraakt worden. Om het varken op $(4,2)$ te raken via een rechte lijn vanuit positie $(1,2)$ moet je een lineaire functie definiëren die deze twee punten bevat. Dat komt overeen met een rechte evenwijdig met de x-as, namelijk $y=2$.
 
 Vaarken met coördinaten $(2,4)$: Hier moet je opnieuw een rechte definiëren. We hebben reeds gezien hoe we de vergelijking van een rechte bepalen, gegeven twee punten van die rechte. Je komt dan $y = 2x$ uit.
 
 ### Oefening op ceil en floor
 
-Stel $f: \mathbb{R} \rightarrow \mathbb{R}: x \rightarrow floor(ceiling(x - \frac{1}{2}))$ 
+Stel $f: \mathbb{R} \rightarrow \mathbb{R}: x \rightarrow floor(ceiling(x - \frac{1}{2}))$
 
-- Bepaal het domein, beeld, grafiek en de nulpunten
+-   Bepaal het domein, beeld, grafiek en de nulpunten
 
-- Domein : $\mathbb{R}$, de functie is overal gedefinieerd
-- Beeld: $\mathbb{Z}$
-- Nulpunten:
+-   Domein : $\mathbb{R}$, de functie is overal gedefinieerd
+
+-   Beeld: $\mathbb{Z}$
+
+-   Nulpunten:
 
 \begin{eqnarray}
 floor(ceiling(x - \frac{1}{2})) = 0 & \Leftrightarrow 0 \leq ceiling(x - \frac{1}{2}) < 1 \\
@@ -135,7 +144,6 @@ floor(ceiling(x - \frac{1}{2})) = 0 & \Leftrightarrow 0 \leq ceiling(x - \frac{1
    \Leftrightarrow & -1< x - \frac{1}{2} \leq 0 \\
    \Leftrightarrow & - \frac{1}{2} < x \leq \frac{1}{2}
 \end{eqnarray}
-
 
 ```{r }
 f <- function(x){
@@ -145,8 +153,5 @@ f <- function(x){
 curve(f,-4,4,type = "S")
 
 ```
-Let op dat bij deze grafiek de verticale lijnen er eigenlijk niet bij mogen getekend worden. 
 
-
-
-
+Let op dat bij deze grafiek de verticale lijnen er eigenlijk niet bij mogen getekend worden.
