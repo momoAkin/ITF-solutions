@@ -1,0 +1,79 @@
+---
+title: "OefeningenFoutDetec"
+author: "Jens Buysse"
+date: "11/17/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Bereken de CRC checksum voor
+
+- ${1101101}$ met polynoom ${10011}$
+- ${111010010}$ met polynoom ${10011}$
+- ${100111001011}$ met polynoom ${100101}$
+
+We gaan de eerste oefening samen maken.
+
+| 1 	| 1 	| 0 	| 1 	| 1 	| 0 	| 1 	|
+|---	|---	|---	|---	|---	|---	|---	|
+| 1 	| 0 	| 0 	| 1 	| 1 	|   	|   	|
+| 0 	| 1 	| 0 	| 0 	| 0 	| 0 	| 1 	|
+|   	| 1 	| 0 	| 0 	| 1 	| 1 	|   	|
+|   	| 0 	| 0 	| 0 	| 1 	| 1 	| 1 	|
+|   	|   	| 1 	| 0 	| 0 	| 1 	| 1 	|
+|   	|   	| 0 	| 0 	| 1 	| 1 	| 1 	|
+
+Merk op dat in de laatste stap er niets dient te gebeuren aangezien de bit boven de meeste links bit van de polynoom 0 is. We krijgen dus als checksum ${0111}$.
+
+We maken voor de volledigheid ook nog eens de laatste oefening. 
+
+| 1 	| 1 	| 0 	| 1 	| 1 	| 0 	| 1 	|
+|---	|---	|---	|---	|---	|---	|---	|
+| 1 	| 0 	| 0 	| 1 	| 1 	|   	|   	|
+| 0 	| 1 	| 0 	| 0 	| 0 	| 0 	| 1 	|
+|   	| 1 	| 0 	| 0 	| 1 	| 1 	|   	|
+|   	| 0 	| 0 	| 0 	| 1 	| 1 	| 1 	|
+|   	|   	| 1 	| 0 	| 0 	| 1 	| 1 	|
+|   	|   	| 0 	| 0 	| 1 	| 1 	| 1 	|
+
+Merk op dat we hier de iteraties waar een nul boven de meerst linkse bit van de polynoom gewoon overslaan.
+
+## Zijn de volgende doorgestuurde gegevens correct?
+
+Hier komt het er dus opnieuw op neer om de CRC checksum te berekenen. 
+
+| 1 	| 1 	| 0 	| 0 	| 1 	| 0 	| 0 	| 1 	| 1 	|
+|---	|---	|---	|---	|---	|---	|---	|---	|---	|
+| 1 	| 0 	| 0 	| 1 	| 0 	| 1 	|   	|   	|   	|
+| 0 	| 1 	| 0 	| 1 	| 1 	| 1 	| 0 	| 1 	| 1 	|
+|   	| 1 	| 0 	| 0 	| 1 	| 0 	| 1 	|   	|   	|
+|   	| 0 	| 0 	| 1 	| 0 	| 1 	| 1 	| 1 	| 1 	|
+|   	|   	|   	| 1 	| 0 	| 0 	| 1 	| 0 	| 1 	|
+|   	|   	|   	| 0 	| 0 	| 1 	| 0 	| 1 	| 0 	|
+
+Hier zien we dat de CRC checksym ${01010}$ overeenkomt met de 5 laatste bits van de gegeven dataset ${110010011}$. 
+
+## Oefening op foutdetecterende codes
+
+Je ontvangt onderstaande bitreeksen van een zender die een CRC checksum achter de originele gegevens meestuurt. De zender gebruikt de polynoom ${10111}$. Geef aan of de ontvangen bitreeksen correct of fout zijn.
+
+We gaan bij wijze van voorbeeld oefening 2 maken. Het komt eigenlijk altijd op hetzelfde neer.
+
+| 1 	| 0 	| 0 	| 1 	| 1 	| 0 	| 1 	| 1 	| 0 	| 0 	| 0 	| 0 	|
+|-	|-	|-	|-	|-	|-	|-	|-	|-	|-	|-	|-	|
+| 1 	| 0 	| 1 	| 1 	| 1 	|  	|  	|  	|  	|  	|  	|  	|
+| 0 	| 0 	| 1 	| 0 	| 0 	| 0 	| 1 	| 1 	| 0 	| 0 	| 0 	| 0 	|
+|  	|  	| 1 	| 0 	| 1 	| 1 	| 1 	|  	|  	|  	|  	|  	|
+|  	|  	| 0 	| 0 	| 1 	| 1 	| 0 	| 1 	| 0 	| 0 	| 0 	| 0 	|
+|  	|  	|  	|  	| 1 	| 0 	| 1 	| 1 	| 1 	|  	|  	|  	|
+|  	|  	|  	|  	| 0 	| 1 	| 1 	| 0 	| 1 	| 0 	| 0 	| 0 	|
+|  	|  	|  	|  	|  	| 1 	| 0 	| 1 	| 1 	| 1 	|  	|  	|
+|  	|  	|  	|  	|  	| 0 	| 1 	| 1 	| 0 	| 1 	| 0 	| 0 	|
+|  	|  	|  	|  	|  	|  	| 1 	| 0 	| 1 	| 1 	| 1 	|  	|
+|  	|  	|  	|  	|  	|  	| 0 	| 1 	| 1 	| 0 	| 1 	| 0 	|
+|  	|  	|  	|  	|  	|  	|  	| 1 	| 0 	| 1 	| 1 	| 1 	|
+|  	|  	|  	|  	|  	|  	|  	| 0 	| 1 	| 1 	| 0 	| 1 	|
+
